@@ -1,9 +1,9 @@
-package models;
+package entity;
 
 
-import models.enums.ECoffeType;
-import models.enums.EPackageType;
-import services.CoffeeService;
+import entity.enums.ECoffeType;
+import entity.enums.EPackageType;
+import business.service.CoffeeService;
 
 public class Coffee {
     private final ECoffeType coffeeType;

@@ -1,19 +1,18 @@
-package models;
+package entity;
 
-import dao.CoffeSupplier;
+import business.dao.CoffeSupplierDao;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TruckDriverTest {
     private TruckDriver driver;
-    private CoffeSupplier supplier;
+    private CoffeSupplierDao supplier;
 
     @BeforeEach
     public void init() {
         driver = new TruckDriver(500, 200);
-        supplier = new CoffeSupplier();
+        supplier = new CoffeSupplierDao();
     }
 
     @AfterEach

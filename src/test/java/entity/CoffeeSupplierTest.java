@@ -1,4 +1,4 @@
-package models;
+package entity;
 
 import org.junit.jupiter.api.*;
 import org.mockito.Mock;

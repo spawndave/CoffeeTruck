@@ -1,9 +1,9 @@
-package models;
+package entity;
 
-import models.enums.ECoffeType;
-import models.enums.EPackageType;
+import entity.enums.ECoffeType;
+import entity.enums.EPackageType;
 import org.junit.jupiter.api.*;
-import services.CoffeeService;
+import business.service.CoffeeService;
 
 
 public class CoffeeTest {

@@ -1,13 +1,14 @@
-package services;
+package business.service;
 
-import dao.CoffeSupplier;
-import models.Coffee;
+import business.dao.CoffeSupplierDao;
+import entity.Coffee;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 public class CoffeeService {
 
-    private static final CoffeSupplier  supplier = new CoffeSupplier();
+    private static final CoffeSupplierDao supplier = new CoffeSupplierDao();
 
     public static void sortCoffeeByPrice(List<Coffee> coffeeList){
         coffeeList.sort(Comparator.comparing(CoffeeService::getTotalPrice));
@@ -31,7 +32,7 @@ public class CoffeeService {
         return coffee.getWeight() + coffee.getPackageType().getWeight();
     }
 
-    public static CoffeSupplier getSupplier(){
-        return supplier;
+    public static List<Coffee> getCoffeeList(){
+        return supplier.getCoffeeList();
     }
 }

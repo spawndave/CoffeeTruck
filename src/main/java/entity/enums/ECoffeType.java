@@ -1,4 +1,4 @@
-package models.enums;
+package entity.enums;
 
 public enum ECoffeType {
     COFFE_BEANS(1, "Кофе в зернах"),

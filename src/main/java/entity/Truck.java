@@ -1,6 +1,4 @@
-package models;
-
-import services.CoffeeService;
+package entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +18,7 @@ public final class Truck  {
     public double getAvailableWeight() {
         return availableWeight;
     }
-    public List<Coffee> getProducts(){
+    public List<Coffee> getCoffeeListFromTruck(){
         return products;
     }
 

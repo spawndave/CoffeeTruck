@@ -1,4 +1,4 @@
-package models.enums;
+package entity.enums;
 
 public enum EPackageType {
     BIG_BAG(1, 3),
