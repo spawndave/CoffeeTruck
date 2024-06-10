@@ -3,6 +3,7 @@ package models;
 import models.enums.ECoffeType;
 import models.enums.EPackageType;
 import org.junit.jupiter.api.*;
+import services.CoffeeService;
 
 
 public class CoffeeTest {
@@ -20,12 +21,12 @@ public class CoffeeTest {
 
     @Test
     public void getTotalPriceTest() {
-        Assertions.assertEquals(78, coffee.getTotalPrice());
+        Assertions.assertEquals(78, CoffeeService.getTotalPrice(coffee));
     }
 
     @Test
     public void getTotalWeight() {
-        Assertions.assertEquals(6, coffee.getTotalWeight());
+        Assertions.assertEquals(6, CoffeeService.getTotalWeight(coffee));
     }
 
     @Test

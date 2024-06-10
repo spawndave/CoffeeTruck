@@ -1,13 +1,15 @@
-package models;
+package dao;
 
+import models.Coffee;
 import models.enums.*;
-import utils.CoffeeSorterUtil;
+import services.CoffeeService;
+import services.DriverService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class CoffeSupplier {
-    private List<Coffee> coffeeList = new ArrayList<>();
+    private final List<Coffee> coffeeList = new ArrayList<>();
 
     public CoffeSupplier() {
         init();
@@ -21,27 +23,17 @@ public class CoffeSupplier {
         coffeeList.add(new Coffee("Nescafe Gold", 0.1,2.2, ECoffeType.INSTANT_COFEE, EPackageType.SMALL_BAG));
     }
 
-    public void handleOrder(TruckDriver driver){
+    public void handleOrder(DriverService driverService){
         Random random = new Random();
         while(true){
-            Coffee item = coffeeList.get(random.nextInt(coffeeList.size()));
-            if(driver.hasMoney(item.getTotalPrice())
-                    && driver.hasEnoughSpaceInTruck(item.getTotalWeight())){
-                driver.putCoffeeInTruck(item);
+            Coffee coffee = coffeeList.get(random.nextInt(coffeeList.size()));
+            if(driverService.isDriverHasMoney(CoffeeService.getTotalPrice(coffee))
+                    && driverService.hasEnoughSpaceInTruck(CoffeeService.getTotalWeight(coffee))){
+                driverService.putCoffeeInTruck(coffee);
             }else{
                 break;
             }
         }
-    }
-
-    public CoffeSupplier sortCoffeeByPrice(){
-        CoffeeSorterUtil.sortCoffeeByPrice(coffeeList);
-        return this;
-    }
-
-    public CoffeSupplier sortCoffeeByWeight(){
-        CoffeeSorterUtil.sortCoffeeByWeight(coffeeList);
-        return this;
     }
 
     public List<Coffee> getCoffeList(){

@@ -1,29 +1,28 @@
 package models;
 
+import services.CoffeeService;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public final class Truck  {
 
-    private double availableWeight;
-    private List<Coffee> items = new ArrayList<>();
+    private final double availableWeight;
+    private final List<Coffee> products = new ArrayList<>();
 
     public Truck(double availableWeight) {
         this.availableWeight = availableWeight;
     }
 
     public void addItem(Coffee item) {
-        availableWeight -= item.getTotalWeight();
-        items.add(item);
+       products.add(item);
     }
     public double getAvailableWeight() {
         return availableWeight;
     }
-    public List<Coffee> getAvailableCoffeeList(){
-        return items;
+    public List<Coffee> getProducts(){
+        return products;
     }
-    public void setAvailableWeight(double weight){
-        availableWeight = weight;
-    }
+
 }
 

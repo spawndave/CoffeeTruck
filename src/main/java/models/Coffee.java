@@ -1,11 +1,11 @@
 package models;
 
 
-import api.ICoffe;
 import models.enums.ECoffeType;
 import models.enums.EPackageType;
+import services.CoffeeService;
 
-public class Coffee implements ICoffe {
+public class Coffee {
     private final ECoffeType coffeeType;
     private final EPackageType packageType;
     private final String name;
@@ -20,28 +20,26 @@ public class Coffee implements ICoffe {
         this.packageType = packageType;
     }
 
-    public double getWeight() {
-        return weight;
-    }
 
     public double getPrice() {
         return price;
     }
 
-    public double getTotalPrice(){
-        return price + packageType.getPrice();
-    }
-
-    public double getTotalWeight(){
-        return weight + packageType.getWeight();
-    }
     public int getQuality(){
         return coffeeType.getQuality();
     }
 
+    public double getWeight() {
+        return weight;
+    }
+
+    public EPackageType getPackageType() {
+        return packageType;
+    }
+
     @Override
     public String toString() {
-        return  name + ", " + coffeeType + ", вес с упаковкой = " + getTotalWeight()
-                + ", цена = " + getTotalPrice() ;
+        return  name + ", " + coffeeType + ", вес с упаковкой = " + CoffeeService.getTotalWeight(this)
+                + ", цена = " + CoffeeService.getTotalPrice(this);
     }
 }
