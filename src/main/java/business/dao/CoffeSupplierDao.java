@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CoffeSupplierDao implements ICoffeeDao {
-    private CoffeeRepository repository = new CoffeeRepository();
+    private final CoffeeRepository repository = new CoffeeRepository();
 
     @Override
     public List<Coffee> getCoffeeList(){
@@ -29,4 +29,5 @@ public class CoffeSupplierDao implements ICoffeeDao {
     public Coffee getCoffeeById(int id){
         return repository.getCoffeeById(id);
     }
+
 }

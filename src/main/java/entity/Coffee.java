@@ -6,13 +6,15 @@ import entity.enums.EPackageType;
 import business.service.CoffeeService;
 
 public class Coffee {
+    private final long id;
     private final ECoffeType coffeeType;
     private final EPackageType packageType;
     private final String name;
     private final double weight;
     private final double price;
 
-    public Coffee(String name, double weight, double price, ECoffeType coffeeType, EPackageType packageType) {
+    public Coffee(long id,String name, double weight, double price, ECoffeType coffeeType, EPackageType packageType) {
+        this.id = id;
         this.name = name;
         this.weight = weight;
         this.price = price;
@@ -31,6 +33,14 @@ public class Coffee {
 
     public double getWeight() {
         return weight;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public EPackageType getPackageType() {
