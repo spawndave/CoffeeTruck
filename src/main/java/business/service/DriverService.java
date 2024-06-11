@@ -21,24 +21,26 @@ public class DriverService {
         return driver.getMoney() >= required;
     }
 
-    public void putCoffeeInTruck(Coffee item) {
-        driver.setMoney(driver.getMoney() - CoffeeService.getTotalPrice(item));
-        driver.getTruck().addItem(item);
+    public void putCoffeeInTruck(Coffee coffee) {
+        driver.setMoney(driver.getMoney() - CoffeeService.getTotalPrice(coffee));
+        driver.getTruck().setAvailableWeight(driver.getTruck().getAvailableWeight() - CoffeeService.getTotalWeight(coffee));
+        driver.getTruck().addItem(coffee);
     }
 
     public void loadCoffeeTruck() {
         Random random = new Random();
         List<Coffee> coffeeList = CoffeeService.getCoffeeList();
-        while(true){
+        while (true) {
             Coffee coffee = coffeeList.get(random.nextInt(coffeeList.size()));
-            if(this.isDriverHasMoney(CoffeeService.getTotalPrice(coffee))
-                    && this.hasEnoughSpaceInTruck(CoffeeService.getTotalWeight(coffee))){
+            if (this.isDriverHasMoney(CoffeeService.getTotalPrice(coffee))
+                    && this.hasEnoughSpaceInTruck(CoffeeService.getTotalWeight(coffee))) {
                 this.putCoffeeInTruck(coffee);
-            }else{
+            } else {
                 break;
             }
         }
     }
+
     public List<Coffee> getCoffeeListFromTruck() {
         return driver.getTruck().getCoffeeListFromTruck();
     }

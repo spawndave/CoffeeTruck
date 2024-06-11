@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class Truck  {
 
-    private final double availableWeight;
+    private double availableWeight;
     private final List<Coffee> products = new ArrayList<>();
 
     public Truck(double availableWeight) {
@@ -17,6 +17,9 @@ public final class Truck  {
     }
     public double getAvailableWeight() {
         return availableWeight;
+    }
+    public void setAvailableWeight(double weight){
+        this.availableWeight = weight;
     }
     public List<Coffee> getCoffeeListFromTruck(){
         return products;
