@@ -33,4 +33,7 @@ public class CoffeeRepository {
          return coffeeList.get(id);
     }
 
+    public boolean deleteCoffeItem(Coffee coffee) {
+         return coffeeList.remove(coffee);
+    }
 }

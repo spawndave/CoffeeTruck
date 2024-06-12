@@ -22,8 +22,8 @@ public class CoffeSupplierDao implements ICoffeeDao {
     }
 
     @Override
-    public void delete(Coffee coffee) {
-
+    public boolean delete(Coffee coffee) {
+        return repository.deleteCoffeItem(coffee);
     }
     @Override
     public Coffee getCoffeeById(int id){

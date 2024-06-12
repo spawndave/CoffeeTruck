@@ -7,5 +7,5 @@ public interface ICoffeeDao {
     List<Coffee> getCoffeeList();
     Coffee getCoffeeById(int id);
     void add(Coffee coffee);
-    void delete(Coffee coffee);
+    boolean delete(Coffee coffee);
 }
